@@ -32,6 +32,7 @@ def draw_job_stats_table(job_stats, title=None):
 
 
 def main():
+    superjob_secret_key = os.getenv("SUPERJOB_SECRETKEY")
     superjob_stats = stats_utils.fetch_languages_vacancies_stats(URL_SJ, LANGUAGES, superjob_secret_key)
     headhunter_stats = stats_utils.fetch_languages_vacancies_stats(URL_HH, LANGUAGES, secret_key=None)
     draw_job_stats_table(superjob_stats, title='SuperJob.ru [Moscow, RU]')
@@ -40,5 +41,4 @@ def main():
 
 if __name__ == "__main__":
     load_dotenv()
-    superjob_secret_key = os.getenv("SUPERJOB_SECRETKEY")
     main()
