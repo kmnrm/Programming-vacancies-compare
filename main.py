@@ -23,9 +23,7 @@ def draw_job_stats_table(job_stats, title=None):
     ]
     table_title = title
     for (language, stats) in job_stats.items():
-        new_row = [language]
-        for stat_value in stats.values():
-            new_row.append(stat_value)
+        new_row = [language] + [stat for stat in stats.values()]
         table.append(new_row)
     ascii_table = AsciiTable(table, table_title)
     print(ascii_table.table)
